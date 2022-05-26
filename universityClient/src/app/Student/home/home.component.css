@@ -1,0 +1,15 @@
+img {
+  border-radius: 20px;
+  padding: 0px;
+  max-width: 180px;
+  max-height: 180px;
+}
+.shadow {
+  box-shadow: 10px 10px 5px lightblue inset;
+}
+td {
+  font-weight: bold;
+}
+.td2 {
+  color: rgb(4, 15, 138);
+}

@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+  <div class="col-10 mt-3">
+    <p class="header">Plan Courses</p>
+
+    <table class="table" *ngIf="planCourses">
+      <thead>
+        <tr style="background: #393f53ea">
+          <th class="text-center text-light font-weight-bold">course</th>
+          <th class="text-center text-light font-weight-bold">hours</th>
+          <th class="text-center text-light font-weight-bold">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of planCourses">
+          <td class="text-center border">
+            {{ course.courseName }}
+          </td>
+          <td class="text-center font-weight-bold border text-primary">
+            {{ course.courseHours }}
+          </td>
+          <td class="text-center border">
+            {{ course.courseStatus }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <p class="font-weight-bold">
+        Successfully completed hours :
+        <strong class="text-primary">{{ completedHours }}</strong>
+      </p>
+      <p class="font-weight-bold">
+        remaining hours :
+        <strong class="text-primary">{{ remainingHours }}</strong>
+      </p>
+    </div>
+  </div>
+</div>

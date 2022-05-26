@@ -1,0 +1,75 @@
+<h3 class="font-weight-bold" style="color: #393f53ea">Students List</h3>
+<hr />
+<div class="row">
+  <app-select-input
+    class="col-3"
+    [label]="'Faculty'"
+    [options]="faculties"
+    (selectChange)="onSelectFacultyChange($event)"
+  ></app-select-input>
+  <app-select-input
+    class="col-3"
+    [label]="'major'"
+    [options]="facultyMajors"
+    (selectChange)="onSelectMajorChange($event)"
+  ></app-select-input>
+
+  <div class="col-3">
+    <h6 style="color: #393f53ea">username</h6>
+    <input
+      id="username"
+      [(ngModel)]="params.name"
+      class="form-control"
+      type="search"
+      placeholder="Username"
+    />
+  </div>
+  <div class="col-2">
+    <h6 style="color: #393f53ea">universityId</h6>
+    <input
+      id="universityId"
+      ngModel
+      class="form-control"
+      type="number"
+      placeholder="universityId"
+    />
+  </div>
+  <button class="btn btn-success col-1 mt-4 mb-3" (click)="onSearchSubmit()">
+    {{ searchBtn }}
+  </button>
+</div>
+<table class="table table-striped mt-3">
+  <thead>
+    <tr style="background: #393f53ea">
+      <th class="text-center text-light font-weight-bold">Full Name</th>
+      <th class="text-center text-light font-weight-bold">Faculty</th>
+      <th class="text-center text-light font-weight-bold">Major</th>
+      <th class="text-center text-light font-weight-bold">Register Date</th>
+      <th class="text-center text-light font-weight-bold">city</th>
+      <th class="text-center text-light font-weight-bold">phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td class="text-center">{{ student.fullName }}</td>
+      <td class="text-center">{{ student.facultyName }}</td>
+      <td class="text-center">{{ student.majorName }}</td>
+      <td class="text-center">{{ student.registerDate | date }}</td>
+      <td class="text-center">{{ student.city }}</td>
+      <td class="text-center">{{ student.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.TotalItems"
+    [itemsPerPage]="pagination.ItemsPerPage"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

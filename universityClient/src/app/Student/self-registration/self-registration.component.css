@@ -1,0 +1,15 @@
+td {
+  padding: 10px;
+  padding-top: 16px;
+  color: black;
+}
+caption {
+  display: table-caption;
+  text-align: center;
+}
+p {
+  font-weight: bolder;
+  font-size: 25px;
+  color: #393f53ea;
+  text-align: center;
+}

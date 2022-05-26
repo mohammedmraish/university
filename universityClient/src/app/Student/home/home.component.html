@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-8 row justify-content-center">
+    <img
+      class="col-3 m-2 shadow-lg"
+      src="./assets/profilePhoto.jpg"
+      alt="Card image"
+    />
+    <table class="table">
+      <thead>
+        <tr style="background: #393f53ea">
+          <th colspan="2" class="text-center text-light font-weight-bold">
+            Student Information
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 250px" class="text-center border">student</td>
+          <td class="td2 text-center">{{ studentData.fullName }}</td>
+        </tr>
+        <tr>
+          <td style="width: 250px" class="text-center border">Faculty</td>
+          <td class="td2 text-center">{{ studentData.facultyName }}</td>
+        </tr>
+        <tr>
+          <td style="width: 250px" class="text-center border">Major</td>
+          <td class="td2 text-center">{{ studentData.majorName }}</td>
+        </tr>
+        <tr>
+          <td style="width: 250px" class="text-center border">register Date</td>
+          <td class="td2 text-center">{{ studentData.registerDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

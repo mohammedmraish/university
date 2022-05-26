@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <h3 class="font-weight-bold" style="color: #393f53ea">Teachers List</h3>
+    <hr />
+    <div class="col-4">
+      <app-select-input
+        [label]="'Faculty'"
+        [options]="faculties"
+        (selectChange)="onSelectFacultyChange($event)"
+      ></app-select-input>
+    </div>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr style="background: #393f53ea">
+          <th class="text-center text-light font-weight-bold">Full Name</th>
+          <th class="text-center text-light font-weight-bold">Faculty</th>
+          <th class="text-center text-light font-weight-bold">Register date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of Teachers">
+          <td class="text-center">{{ teacher.fullName }}</td>
+          <td class="text-center">{{ teacher.facultyName }}</td>
+          <td class="text-center">{{ teacher.registerDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center" *ngIf="pagination">
+      <pagination
+        [boundaryLinks]="true"
+        [totalItems]="pagination.TotalItems"
+        [itemsPerPage]="pagination.ItemsPerPage"
+        (pageChanged)="pageChanged($event)"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;"
+      >
+      </pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <h3 class="text-center font-weight-bold" style="color: #393f53ea">
+      Majors List
+    </h3>
+    <hr />
+    <div class="col-4">
+      <app-select-input
+        [label]="'Faculty'"
+        [options]="faculties"
+        (selectChange)="onSelectFacultyChange($event)"
+      ></app-select-input>
+    </div>
+
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr style="background-color: #393f53ea">
+          <th class="text-center text-light font-weight-bold">Major Name</th>
+          <th class="text-center text-light font-weight-bold">Faculty name</th>
+          <th class="text-center text-light font-weight-bold">Total Courses</th>
+          <th class="text-center text-light font-weight-bold">
+            Total Students
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let major of majors">
+          <td class="text-center">
+            {{ major.majorName }}
+          </td>
+          <td class="text-center">
+            {{ major.facultyName }}
+          </td>
+          <td class="text-center">
+            {{ major.coursesCount }}
+          </td>
+          <td class="text-center">
+            {{ major.studentsCount }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center" *ngIf="pagination">
+      <pagination
+        [boundaryLinks]="true"
+        [totalItems]="pagination.TotalItems"
+        [itemsPerPage]="pagination.ItemsPerPage"
+        (pageChanged)="pageChanged($event)"
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;"
+      >
+      </pagination>
+    </div>
+  </div>
+</div>

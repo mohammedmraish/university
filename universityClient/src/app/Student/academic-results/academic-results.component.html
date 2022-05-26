@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-10 mt-3">
+    <p class="header">Academic Results</p>
+
+    <div class="row col-10">
+      <app-select-input
+        class="col"
+        [label]="'year'"
+        [options]="years"
+        (selectChange)="onSelectYearChange($event)"
+      ></app-select-input>
+      <app-select-input
+        class="col"
+        [label]="'semester'"
+        [options]="semesters"
+        (selectChange)="onSelectSemesterChange($event)"
+      ></app-select-input>
+      <p class="col ml-5 mt-4">
+        GPA : <strong class="text-primary">{{ GPA }}</strong>
+      </p>
+      <p class="col mt-4">
+        total hours: <strong class="text-primary">{{ totalHours }}</strong>
+      </p>
+    </div>
+    <table class="table" *ngIf="courses">
+      <thead>
+        <tr style="background: #393f53ea">
+          <th class="text-center text-light font-weight-bold">course</th>
+          <th class="text-center text-light font-weight-bold">
+            year / semester
+          </th>
+          <th class="text-center text-light font-weight-bold">hours</th>
+          <th class="text-center text-light font-weight-bold">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td class="text-center border">
+            {{ course.courseName }}
+          </td>
+          <td class="text-center border">
+            {{ course.courseYear }}
+          </td>
+          <td class="text-center font-weight-bold border text-primary">
+            {{ course.courseHours }}
+          </td>
+          <td class="text-center font-weight-bold text-primary border">
+            {{ course.courseGrade }} / 100
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

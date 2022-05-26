@@ -1,0 +1,137 @@
+<div>
+  <nav
+    class="navbar navbar-expand-md navbar-dark fixed-top"
+    style="padding: 0px; background-color: #494f61"
+  >
+    <div class="auth__logo" style="padding: 3px; margin-left: 10px">
+      <img height="90" src="./assets/university.png" alt="" />
+    </div>
+    <div class="container">
+      <ul class="navbar-nav mr-auto">
+        <!-------------------------------------------------------------------------------- students -->
+
+        <li class="dropdown nav-item" dropdown>
+          <a class="dropdown-toggle nav-link" dropdownToggle>Students </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              routerLinkActive="active"
+              routerLink="registerStudent"
+              >register Student</a
+            >
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              routerLinkActive="active"
+              routerLink="allStudents"
+              >students reports</a
+            >
+          </div>
+        </li>
+        <!-------------------------------------------------------------------------------- teachers -->
+
+        <li class="dropdown nav-item" dropdown>
+          <a class="dropdown-toggle nav-link" dropdownToggle>Teachers </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              routerLink="registerTeacher"
+              routerLinkActive="active"
+              >register Teacher</a
+            >
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              routerLinkActive="active"
+              routerLink="allTeachers"
+              >Teachers reports</a
+            >
+          </div>
+        </li>
+        <!--------------------------------------------------------------------------------  faculties majors-->
+        <li class="dropdown nav-item" dropdown>
+          <a class="dropdown-toggle nav-link" dropdownToggle
+            >Faculties & Majors
+          </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              routerLinkActive="active"
+              routerLink="facultiesList"
+              >Faculties List</a
+            >
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              routerLinkActive="active"
+              routerLink="majors"
+              >add new major</a
+            >
+            <a
+              class="dropdown-item"
+              routerLinkActive="active"
+              routerLink="majorsList"
+              >majors list</a
+            >
+          </div>
+        </li>
+        <!--------------------------------------------------------------------------------courses -->
+
+        <li class="dropdown nav-item" dropdown>
+          <a class="dropdown-toggle nav-link" dropdownToggle>Courses </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              routerLink="addCourse"
+              routerLinkActive="active"
+              >add new Course</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="coursesList"
+              routerLinkActive="active"
+              >courses List</a
+            >
+          </div>
+        </li>
+        <!-------------------------------------------------------------------------------- Sections -->
+
+        <li class="dropdown nav-item" dropdown>
+          <a class="dropdown-toggle nav-link" dropdownToggle>Sections </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              routerLink="addSection"
+              routerLinkActive="active"
+              >add new Section</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="sectionsList"
+              routerLinkActive="active"
+              >sections list</a
+            >
+          </div>
+        </li>
+        <!-------------------------------------------------------------------------------- -->
+        <li class="dropdown nav-item" dropdown>
+          <a class="dropdown-toggle nav-link" dropdownToggle>reports </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a
+              class="dropdown-item"
+              routerLink="generalReports"
+              routerLinkActive="active"
+              >general reports</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top: 96px">
+    <div class="row justify-content-center">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

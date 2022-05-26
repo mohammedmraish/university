@@ -1,0 +1,15 @@
+<div class="form-group">
+  <h6 for="facultyId" style="color: #393f53ea">{{ label }}</h6>
+  <select
+    class="form-control custom-select"
+    id="{{ label }}"
+    name="{{ label }}"
+    [formControl]="ngControl.control"
+    (change)="onSelectChange($event)"
+  >
+    <option></option>
+    <option *ngFor="let option of options" value="{{ option.id }}">
+      {{ option.name }}
+    </option>
+  </select>
+</div>

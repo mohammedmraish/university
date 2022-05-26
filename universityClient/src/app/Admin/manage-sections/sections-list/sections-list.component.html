@@ -1,0 +1,47 @@
+<table class="table table-striped ml-1">
+  <thead>
+    <tr style="background: #393f53ea">
+      <th class="text-center text-light font-weight-bold">course</th>
+      <th class="text-center text-light font-weight-bold">teacher</th>
+      <th class="text-center text-light font-weight-bold">major</th>
+      <th class="text-center text-light font-weight-bold">class room</th>
+      <th class="text-center text-light font-weight-bold">day</th>
+      <th class="text-center text-light font-weight-bold">time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let section of sections">
+      <td class="text-center">
+        {{ section.courseName }}
+      </td>
+      <td class="text-center">
+        {{ section.teacherName }}
+      </td>
+      <td class="text-center">
+        {{ section.majorName }}
+      </td>
+      <td class="text-center">
+        {{ section.classroomId }}
+      </td>
+      <td class="text-center">
+        {{ section.day }}
+      </td>
+      <td class="text-center">
+        {{ section.time }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.TotalItems"
+    [itemsPerPage]="pagination.ItemsPerPage"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

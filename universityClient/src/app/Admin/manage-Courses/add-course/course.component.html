@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-9 shadow-lg pb-3">
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="AddCourse()"
+      autocomplete="off"
+    >
+      <h2 class="text-center text-primary">Add new Course</h2>
+      <hr />
+      <div class="row">
+        <app-select-input
+          class="col"
+          [label]="'Faculty'"
+          [options]="faculties"
+          (selectChange)="onSelectFacultyChange($event)"
+        ></app-select-input>
+
+        <app-form-control-select-input
+          class="col"
+          [label]="'Major'"
+          [options]="facultyMajors"
+          [formControl]="registerForm.controls['majorId']"
+        ></app-form-control-select-input>
+      </div>
+
+      <app-form-control-select-input
+        [label]="'Number Of Hours'"
+        [options]="numberOfHours"
+        [formControl]="registerForm.controls['numberOfHours']"
+      ></app-form-control-select-input>
+
+      <app-text-input
+        [formControl]="registerForm.controls['courseName']"
+        [label]="'Course Name'"
+      ></app-text-input>
+
+      <div class="from-group text-center">
+        <button
+          [disabled]="registerForm.invalid"
+          class="btn btn-primary btn-lg mr-2"
+          type="submit"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<h3 class="font-weight-bold" style="color: #393f53ea">Manage Sections</h3>
+<hr />
+<div class="row">
+  <div class="col-4 shadow-lg" style="height: fit-content">
+    <h5 class="text-center text-light p-2" style="background: #393f53ea">
+      Add new Section
+    </h5>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="row">
+        <app-select-input
+          class="col"
+          [label]="'Faculty'"
+          [options]="faculties"
+          [value]="facultyId"
+          (selectChange)="onSelectFacultyChange($event)"
+        ></app-select-input>
+        <!--faculty select-->
+
+        <app-select-input
+          class="col"
+          [label]="'Major'"
+          [value]="majorId"
+          [options]="facultyMajors"
+          (selectChange)="onSelectMajorChange($event)"
+        ></app-select-input>
+        <!--major select-->
+      </div>
+
+      <div class="row">
+        <app-form-control-select-input
+          class="col"
+          [label]="'Course'"
+          [options]="majorCourses"
+          [formControl]="registerForm.controls['courseId']"
+        ></app-form-control-select-input>
+        <!--course select-->
+
+        <app-form-control-select-input
+          class="col"
+          [label]="'Teacher'"
+          [options]="facultyTeachers"
+          [formControl]="registerForm.controls['teacherId']"
+        ></app-form-control-select-input>
+        <!--teacher select-->
+      </div>
+
+      <div class="row">
+        <app-form-control-select-input
+          class="col"
+          [label]="'Class Room'"
+          [options]="classRooms"
+          [formControl]="registerForm.controls['classroomId']"
+        ></app-form-control-select-input>
+        <!--classroomId select-->
+        <app-form-control-select-input
+          class="col"
+          [label]="'Semester'"
+          [options]="semesters"
+          [formControl]="registerForm.controls['semester']"
+        ></app-form-control-select-input>
+        <!--semester select-->
+      </div>
+      <div class="row">
+        <app-select-input
+          class="col"
+          [label]="'Day'"
+          [options]="days"
+          (selectChange)="onDaySelectChange($event)"
+        ></app-select-input>
+        <!--day select-->
+
+        <app-form-control-select-input
+          class="col"
+          style="display: inline"
+          [label]="'Time'"
+          [options]="timeSlots"
+          [formControl]="registerForm.controls['timeSlotId']"
+        ></app-form-control-select-input>
+        <!--timeStartEnd select-->
+      </div>
+
+      <div class="text-center" style="margin-bottom: 15px">
+        <button
+          [disabled]="registerForm.invalid"
+          class="btn mt-2 ml-3 btn-primary"
+          type="submit"
+        >
+          Add section
+        </button>
+        <button
+          class="btn mt-2 mr-1 ml-4"
+          style="background: #393f53ea; color: whitesmoke"
+          (click)="onFilterClick()"
+          type="button"
+        >
+          filter
+        </button>
+        <button
+          class="btn mt-2"
+          style="background: #393f53ea; color: whitesmoke"
+          (click)="onFilterCleare()"
+          type="button"
+        >
+          clear
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-8">
+    <app-sections-list></app-sections-list>
+  </div>
+</div>

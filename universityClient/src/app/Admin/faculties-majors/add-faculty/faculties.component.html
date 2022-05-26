@@ -1,0 +1,18 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+  <div class="row">
+    <app-text-input
+      class="col-10"
+      [formControl]="registerForm.controls['facultyName']"
+      [label]="'facultyName'"
+    ></app-text-input>
+
+    <button
+      [disabled]="registerForm.invalid"
+      class="btn mb-3 mt-4 text-center col"
+      style="background-color: #393f53ea; color: white"
+      type="submit"
+    >
+      Add new faculty
+    </button>
+  </div>
+</form>

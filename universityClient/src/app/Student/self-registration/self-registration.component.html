@@ -1,0 +1,158 @@
+<div class="row justify-content-center">
+  <div class="col-10 mt-3">
+    <p>registered schedule</p>
+
+    <table class="table" *ngIf="schedule">
+      <thead>
+        <tr style="background: #393f53ea">
+          <th class="text-center text-light font-weight-bold">course</th>
+          <th class="text-center text-light font-weight-bold">section</th>
+          <th class="text-center text-light font-weight-bold">hours</th>
+          <th class="text-center text-light font-weight-bold">day</th>
+          <th class="text-center text-light font-weight-bold">time</th>
+          <th class="text-center text-light font-weight-bold">class Room</th>
+          <th class="text-center text-light font-weight-bold"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let scheduleItem of schedule">
+          <td class="text-center border">
+            {{ scheduleItem.courseName }}
+          </td>
+          <td class="text-center border">not added</td>
+          <td class="text-center border">not added</td>
+          <td class="text-center border">
+            {{ scheduleItem.day }}
+          </td>
+          <td class="text-center border">
+            {{ scheduleItem.time }}
+          </td>
+          <td class="text-center border">
+            {{ scheduleItem.classroomId }}
+          </td>
+          <td class="text-center border">
+            <button
+              class="btn btn-danger text-light"
+              (click)="deleteCourseSection(scheduleItem.id)"
+            >
+              delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="from-group text-center">
+      <button class="btn btn-primary mr-2" (click)="coursesListModal.show()">
+        Add course
+      </button>
+    </div>
+  </div>
+</div>
+
+<!--  -----------------------------------------------------------------------------coursesListModal  -->
+<div
+  class="modal fade"
+  bsModal
+  #coursesListModal="bs-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-nested-name1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Add course</p>
+
+        <table class="table">
+          <thead>
+            <tr style="background: #1d2747ea">
+              <th class="text-center text-light font-weight-bold">course</th>
+              <th class="text-center text-light font-weight-bold">hours</th>
+              <th class="text-center text-light font-weight-bold"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of coursesList">
+              <td class="text-center border">
+                {{ course.courseName }}
+              </td>
+              <td class="text-center border">{{ course.courseHours }}</td>
+
+              <td class="text-center border">
+                <button
+                  class="btn text-light"
+                  style="background: #393f53ea"
+                  (click)="coursesSectionsListModal.show()"
+                  (click)="getCourseSections(course.courseName)"
+                >
+                  search
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  ------------------------------------------------------------------------- coursesSectionsListModal  -->
+
+<div
+  class="modal fade"
+  bsModal
+  #coursesSectionsListModal="bs-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-nested-name2"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="background-color: #f0f0f0">
+      <div class="modal-body">
+        <p>registered schedule</p>
+
+        <table class="table" *ngIf="schedule" style="background-color: white">
+          <thead>
+            <tr style="background: #10205eea">
+              <th class="text-center text-light font-weight-bold">course</th>
+              <th class="text-center text-light font-weight-bold">teacher</th>
+              <th class="text-center text-light font-weight-bold">section</th>
+              <th class="text-center text-light font-weight-bold">day</th>
+              <th class="text-center text-light font-weight-bold">time</th>
+              <th class="text-center text-light font-weight-bold">
+                class Room
+              </th>
+              <th class="text-center text-light font-weight-bold"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let section of courseSections">
+              <td class="text-center border">
+                {{ section.courseName }}
+              </td>
+              <td class="text-center border">{{ section.teacherName }}</td>
+              <td class="text-center border">{{ section.courseSection }}</td>
+              <td class="text-center border">
+                {{ section.day }}
+              </td>
+              <td class="text-center border">
+                {{ section.time }}
+              </td>
+              <td class="text-center border">
+                {{ section.classroomId }}
+              </td>
+              <td class="text-center border">
+                <button
+                  class="btn text-light"
+                  style="background: #393f53ea"
+                  (click)="addCourseSection(section.id)"
+                >
+                  Add
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

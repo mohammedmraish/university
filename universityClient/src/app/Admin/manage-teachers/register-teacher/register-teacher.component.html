@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-9 shadow-lg pb-3">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+      <h2 class="text-center text-primary">Register Teacher</h2>
+      <hr />
+
+      <app-form-control-select-input
+        [label]="'Faculty'"
+        [options]="faculties"
+        [formControl]="registerForm.controls['facultyId']"
+      ></app-form-control-select-input>
+
+      <app-text-input
+        [formControl]="registerForm.controls['username']"
+        [label]="'username'"
+      ></app-text-input>
+
+      <app-text-input
+        [formControl]="registerForm.controls['fullName']"
+        [label]="'fullName'"
+      ></app-text-input>
+
+      <app-text-input
+        [formControl]="registerForm.controls['password']"
+        [label]="'password'"
+        [type]="'password'"
+      ></app-text-input>
+
+      <div class="from-group text-center">
+        <button
+          [disabled]="registerForm.invalid"
+          class="btn btn-primary btn-lg mr-2"
+          type="submit"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

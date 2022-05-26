@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <h3 class="font-weight-bold" style="color: #393f53ea">Faculties List</h3>
+    <hr />
+    <div class="shadow-lg" style="padding: 10px 40px">
+      <app-faculties (OnfacultyAdd)="onNewFacultyAdded($event)"></app-faculties>
+    </div>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr style="background-color: #393f53ea">
+          <th class="text-center text-light font-weight-bold">Faculty Name</th>
+          <th class="text-center text-light font-weight-bold">Majors Counts</th>
+          <th class="text-center text-light font-weight-bold">
+            Total Teachers
+          </th>
+          <th class="text-center text-light font-weight-bold">
+            Total Students
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let faculty of faculties">
+          <td class="text-center font-weight-bold">
+            {{ faculty.facultyName }}
+          </td>
+          <td class="text-center font-weight-bold">
+            {{ faculty.majorsCount }}
+          </td>
+          <td class="text-center font-weight-bold">
+            {{ faculty.teachersCount }}
+          </td>
+          <td class="text-center font-weight-bold">
+            {{ faculty.studentsCount }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

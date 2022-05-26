@@ -1,0 +1,57 @@
+<div class="row mb-3 mt-2" style="height: auto">
+  <p>card numbers</p>
+  <div style="height: 150px">
+    <ngx-charts-number-card
+      [results]="cardNumbers"
+      [cardColor]="'#3459E6'"
+      [scheme]="'night'"
+      (select)="onSelect($event)"
+    >
+    </ngx-charts-number-card>
+  </div>
+</div>
+<div class="row mb-3" style="height: auto">
+  <p>Number of students in each faculty</p>
+  <div style="height: 280px">
+    <ngx-charts-pie-grid
+      [scheme]="colorScheme"
+      [results]="verticalBars"
+      [label]="'Total Students '"
+      (select)="onSelect($event)"
+      style="fill: #ffffff; font-weight: bold"
+    >
+    </ngx-charts-pie-grid>
+  </div>
+</div>
+<div class="row mb-4" style="height: auto">
+  <p>GPA of students in each faculty</p>
+  <div style="height: 280px">
+    <ngx-charts-bar-vertical
+      [scheme]="colorScheme"
+      [results]="verticalBars"
+      [barPadding]="40"
+      [gradient]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Faculties'"
+      [yAxisLabel]="'Students'"
+      (select)="onSelect($event)"
+      style="fill: #ffffff; font-weight: bold"
+    >
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
+<div class="row mb-4" style="height: 400px">
+  <p>Number of students in each faculty</p>
+  <ngx-charts-gauge
+    [scheme]="'nightLights'"
+    [results]="gauge"
+    [legend]="true"
+    (select)="onSelect($event)"
+    style="fill: #ffffff; font-weight: bold"
+  >
+  </ngx-charts-gauge>
+</div>

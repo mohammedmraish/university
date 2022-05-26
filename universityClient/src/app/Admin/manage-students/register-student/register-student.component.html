@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+  <div class="col-9 shadow-lg pb-3">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+      <h2 class="text-center text-primary">Register Student</h2>
+      <hr />
+      <div class="row">
+        <app-form-control-select-input
+          class="col"
+          [label]="'Faculty'"
+          [options]="faculties"
+          [formControl]="registerForm.controls['facultyId']"
+          (selectChange)="onSelectFacultyChange($event)"
+        ></app-form-control-select-input>
+
+        <!--faculty select-->
+
+        <app-form-control-select-input
+          class="col"
+          [label]="'Major'"
+          [options]="facultyMajors"
+          [formControl]="registerForm.controls['majorId']"
+        ></app-form-control-select-input>
+      </div>
+      <div class="row">
+        <app-text-input
+          class="col"
+          [formControl]="registerForm.controls['username']"
+          [label]="'Username'"
+        ></app-text-input>
+        <app-text-input
+          class="col"
+          [formControl]="registerForm.controls['password']"
+          [label]="'Password'"
+          [type]="'password'"
+        ></app-text-input>
+      </div>
+      <app-text-input
+        [formControl]="registerForm.controls['fullName']"
+        [label]="'FullName'"
+      ></app-text-input>
+      <app-text-input
+        [formControl]="registerForm.controls['city']"
+        [label]="'City'"
+      ></app-text-input>
+      <app-text-input
+        [formControl]="registerForm.controls['phoneNumber']"
+        [label]="'Phone Number'"
+        [type]="'number'"
+      ></app-text-input>
+
+      <div class="form-group text-center">
+        <h5 class="control-label" style="margin-right: 10px; display: inline">
+          Gender :
+        </h5>
+        <label class="radiinlineo- mr-2">
+          <input
+            type="radio"
+            value="male"
+            [formControl]="registerForm.controls['gender']"
+          />
+          Male
+        </label>
+        <label class="radio-inline">
+          <input
+            type="radio"
+            value="female"
+            [formControl]="registerForm.controls['gender']"
+          />
+          Female
+        </label>
+      </div>
+
+      <div class="from-group text-center">
+        <button
+          [disabled]="registerForm.invalid"
+          class="btn btn-primary btn-lg mr-2"
+          type="submit"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

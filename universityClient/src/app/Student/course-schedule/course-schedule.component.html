@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-10 mt-3">
+    <p>registered schedule</p>
+
+    <table class="table" *ngIf="schedule">
+      <thead>
+        <tr style="background: #393f53ea">
+          <th class="text-center text-light font-weight-bold">course</th>
+          <th class="text-center text-light font-weight-bold">section</th>
+          <th class="text-center text-light font-weight-bold">hours</th>
+          <th class="text-center text-light font-weight-bold">day</th>
+          <th class="text-center text-light font-weight-bold">time</th>
+          <th class="text-center text-light font-weight-bold">class Room</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let scheduleItem of schedule">
+          <td class="text-center border">
+            {{ scheduleItem.courseName }}
+          </td>
+          <td class="text-center border">not added</td>
+          <td class="text-center border">not added</td>
+          <td class="text-center border">
+            {{ scheduleItem.day }}
+          </td>
+          <td class="text-center border">
+            {{ scheduleItem.time }}
+          </td>
+          <td class="text-center border">
+            {{ scheduleItem.classroomId }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

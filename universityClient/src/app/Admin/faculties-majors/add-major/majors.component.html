@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  <div class="col-9 shadow-lg pb-3">
+    <form [formGroup]="registerForm" (ngSubmit)="addMajor()" autocomplete="off">
+      <h2 class="text-center text-primary">Add new major</h2>
+      <hr />
+
+      <app-form-control-select-input
+        [label]="'Faculty'"
+        [options]="faculties"
+        [formControl]="registerForm.controls['facultyId']"
+      ></app-form-control-select-input>
+
+      <app-text-input
+        [formControl]="registerForm.controls['majorName']"
+        [label]="'majorName'"
+      ></app-text-input>
+      <div class="from-group text-center">
+        <button
+          [disabled]="registerForm.invalid"
+          class="btn btn-primary btn-lg mr-2"
+          type="submit"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
